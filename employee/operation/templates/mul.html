@@ -16,11 +16,16 @@
   </head>
   <body>
     <form action="" method="post">
-        {% csrf_token %}
+      {% csrf_token %}
+      <table class="table table-dark">
+      {{form.as_table}}
+      </table>
+      <button class="btn btn-info">Submit</button>
+        {% comment %} {% csrf_token %}
         <h1  class="text-center text-light bg-success">Multiplication</h1>
         <input type="number" name="x" placeholder="Number 1" id="">
         <input type="number" name="y" placeholder="Number 2" id="">
-        <button type="submit">Multiply</button>
+        <button type="submit">Multiply</button> {% endcomment %}
         </form>
         <br>
         Result:{{data}}

@@ -67,3 +67,8 @@ class LogView(View):
     def get(self,reg,*args,**kwargs):
         form = LogForm()
         return render(reg,"login.html",{"form":form})
+
+class MainHome(View):
+    def get(self,reg,*args,**kwargs):
+        return render (reg,"main_home.html")
+

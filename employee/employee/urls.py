@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from account.views import MainHome
 
 
 urlpatterns = [
@@ -22,4 +23,5 @@ urlpatterns = [
     path('worker/',include('worker.urls')),
     path('account/',include('account.urls')),
     path('operation/',include('operation.urls')),
+    path('',MainHome.as_view())
 ]

@@ -1,42 +1,47 @@
 from django.shortcuts import render
 from django.views.generic import View
+from .forms import OpForm
 
 # Create your views here.
 class AddView(View):
     def get(self,req,*args,**kwargs):
-        return render (req,"add.html")
+        form = OpForm()
+        return render (req,"add.html",{"form":form})
     def post(self,req,*args,**kwargs):
-        n1=req.POST.get("x")
-        n2=req.POST.get("y")
+        n1=req.POST.get("n1")
+        n2=req.POST.get("n2")
         res=int(n1)+int(n2)
         return render (req,"add.html",{"data":res})
 
 
 class SubView(View):
     def get(self,req,*args,**kwargs):
-        return render (req,"sub.html")
+        form = OpForm()
+        return render (req,"sub.html",{"form":form})
     def post(self,req,*args,**kwargs):
-        n1=req.POST.get("x")
-        n2=req.POST.get("y")
+        n1=req.POST.get("n1")
+        n2=req.POST.get("n2")
         res=int(n1)-int(n2)
         return render (req,"sub.html",{"data":res})
 
 
 class MulView(View):
     def get(self,req,*args,**kwargs):
-        return render (req,"mul.html")
+        form = OpForm()
+        return render (req,"mul.html",{"form":form})
     def post(self,req,*args,**kwargs):
-        n1=req.POST.get("x")
-        n2=req.POST.get("y")
+        n1=req.POST.get("n1")
+        n2=req.POST.get("n2")
         res=int(n1)*int(n2)
         return render (req,"mul.html",{"data":res})
 
 class DivView(View):
     def get(self,req,*args,**kwargs):
-        return render (req,"div.html")
+        form = OpForm()
+        return render (req,"div.html",{"form":form})
     def post(self,req,*args,**kwargs):
-        n1=req.POST.get("x")
-        n2=req.POST.get("y")
+        n1=req.POST.get("n1")
+        n2=req.POST.get("n2")
         res=int(n1)/int(n2)
         return render (req,"div.html",{"data":res})
 
