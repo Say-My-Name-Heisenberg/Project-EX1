@@ -15,13 +15,15 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
-      <h1 class="">reg here</h1>
+      <h1 class="">Registration</h1>
       <form action="">
       {% csrf_token %}
       <table class="table table-dark">
       {{form.as_table}}
       </table>
+      <br>
       <button class="btn btn-info">Submit</button>
+
       {% comment %} <form action="" class="was-validated" method="post">
        {% csrf_token %}
         <div class="form-group">
@@ -56,5 +58,6 @@
         
         <button class="btn btn-info ">submit</button>
     </form>   {% endcomment %}
+    
   </body>
 </html>

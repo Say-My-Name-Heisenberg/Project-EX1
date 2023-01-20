@@ -22,12 +22,15 @@
       <table class="table table-dark">
       {{form.as_table}}
       </table>
+      <br>
       <button class="btn btn-info">Submit</button>
-    {% comment %} <form action="" method="post">
+   
+      {% comment %} <form action="" method="post">
       {% csrf_token %}
       <input type="text" name="uname" id=""  placeholder="Username">
       <input type="password" name="pswd" id=""  placeholder="Password">
       <button>Submit</button>
     </form> {% endcomment %}
+    
   </body>
 </html>
