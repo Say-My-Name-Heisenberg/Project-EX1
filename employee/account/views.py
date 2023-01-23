@@ -65,6 +65,7 @@ class RegView(View):
     def post(self,req,*args,**kwargs):
         form_data = RegForm(data=req.POST)
         if form_data.is_valid():
+            res="Registration Success"
             return render (req,"registration.html",{"data":res})
         else:
             return render(req,"registration.html",{"form":form_data})
