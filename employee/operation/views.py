@@ -8,11 +8,14 @@ class AddView(View):
         form = OpForm()
         return render (req,"add.html",{"form":form})
     def post(self,req,*args,**kwargs):
-        n1=req.POST.get("n1")
-        n2=req.POST.get("n2")
-        res=int(n1)+int(n2)
-        return render (req,"add.html",{"data":res})
-
+        form_data = OpForm(data=req.POST)
+        if form_data.is_valid():
+            num1=req.POST.get("num1")
+            num2=req.POST.get("num2")
+            res=int(num1)+int(num2)
+            return render (req,"add.html",{"data":res})
+        else:
+            return render(req,"add.html",{"form":form_data})
 
 class SubView(View):
     def get(self,req,*args,**kwargs):
