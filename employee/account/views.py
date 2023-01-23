@@ -15,13 +15,13 @@ from .forms import RegForm,LogForm
 
 
 
-class LogView(View):
-    def get(self,req,*args,**kwargs):
-        return render (req,"login.html")
-    def post(self,req,*arga,**kwargs):
-        user=req.POST.get("uname")
-        password=req.POST.get("pswd")
-        return HttpResponse ("username:"+user+"<br>Password:"+password) 
+# class LogView(View):
+#     def get(self,req,*args,**kwargs):
+#         return render (req,"login.html")
+#     def post(self,req,*arga,**kwargs):
+#         user=req.POST.get("uname")
+#         password=req.POST.get("pswd")
+#         return HttpResponse ("username:"+user+"<br>Password:"+password) 
 
 # def registration(reg):
 #     password=reg.POST.get("pswd")
@@ -62,6 +62,12 @@ class RegView(View):
     def get(self,reg,*args,**kwargs):
         form = RegForm()
         return render(reg,"registration.html",{"form":form})
+    def post(self,req,*args,**kwargs):
+        form_data = RegForm(data=req.POST)
+        if form_data.is_valid():
+            return render (req,"registration.html",{"data":res})
+        else:
+            return render(req,"registration.html",{"form":form_data})
 
 class LogView(View):
     def get(self,reg,*args,**kwargs):
