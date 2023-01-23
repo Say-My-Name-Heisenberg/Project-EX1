@@ -22,9 +22,9 @@ class SubView(View):
         form = OpForm()
         return render (req,"sub.html",{"form":form})
     def post(self,req,*args,**kwargs):
-        n1=req.POST.get("n1")
-        n2=req.POST.get("n2")
-        res=int(n1)-int(n2)
+        num1=req.POST.get("num1")
+        num2=req.POST.get("num2")
+        res=int(num1)-int(num2)
         return render (req,"sub.html",{"data":res})
 
 
@@ -33,9 +33,9 @@ class MulView(View):
         form = OpForm()
         return render (req,"mul.html",{"form":form})
     def post(self,req,*args,**kwargs):
-        n1=req.POST.get("n1")
-        n2=req.POST.get("n2")
-        res=int(n1)*int(n2)
+        num1=req.POST.get("num1")
+        num2=req.POST.get("num2")
+        res=int(num1)*int(num2)
         return render (req,"mul.html",{"data":res})
 
 class DivView(View):
@@ -43,9 +43,9 @@ class DivView(View):
         form = OpForm()
         return render (req,"div.html",{"form":form})
     def post(self,req,*args,**kwargs):
-        n1=req.POST.get("n1")
-        n2=req.POST.get("n2")
-        res=int(n1)/int(n2)
+        num1=req.POST.get("num1")
+        num2=req.POST.get("num2")
+        res=int(num1)/int(num2)
         return render (req,"div.html",{"data":res})
 
 class CountView(View):
