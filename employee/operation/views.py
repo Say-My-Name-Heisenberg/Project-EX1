@@ -10,8 +10,8 @@ class AddView(View):
     def post(self,req,*args,**kwargs):
         form_data = OpForm(data=req.POST)
         if form_data.is_valid():
-            num1=req.POST.get("num1")
-            num2=req.POST.get("num2")
+            num1=form_data.cleaned_data.get("num1")
+            num2=form_data.cleaned_data.get("num2")
             res=int(num1)+int(num2)
             return render (req,"add.html",{"data":res})
         else:
