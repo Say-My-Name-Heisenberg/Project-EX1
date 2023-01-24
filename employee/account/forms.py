@@ -7,12 +7,7 @@ class RegForm(forms.Form):
     experience =forms.IntegerField()
     username = forms.CharField(max_length=50)
     password = forms.CharField(max_length=30)
-    # def clean(self):
-    #     cleaned_data=super().clean()
-    #     exp=cleaned_data.get("experience")
-    #     if exp < 1:
-    #         msg="Experience can't be null"
-    #         self.add_error("experience",msg)
+
     def clean(self):
         cleaned_data =super().clean()
         fname=cleaned_data.get("first_name")
