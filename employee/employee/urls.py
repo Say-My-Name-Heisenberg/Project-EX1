@@ -23,5 +23,5 @@ urlpatterns = [
     path('worker/',include('worker.urls')),
     path('account/',include('account.urls')),
     path('operation/',include('operation.urls')),
-    path('',MainHome.as_view())
+    path('',MainHome.as_view(),name="h")
 ]

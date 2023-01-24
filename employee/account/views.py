@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.views.generic import View
 from .forms import RegForm,LogForm
@@ -65,8 +65,10 @@ class RegView(View):
     def post(self,req,*args,**kwargs):
         form_data = RegForm(data=req.POST)
         if form_data.is_valid():
-            res="Registration Success"
-            return render (req,"registration.html",{"data":res})
+   #         res="Registration Success"
+    #        return render (req,"registration.html",{"data":res})
+             uname=form_data.cleaned_data.get("username")
+             return redirect ("h")
         else:
             return render(req,"registration.html",{"form":form_data})
 
