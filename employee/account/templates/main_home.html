@@ -1,4 +1,6 @@
-<!doctype html>
+
+{% extends 'nav.html' %}
+{% comment %} <!doctype html>
 <html lang="en">
   <head>
     <title>Title</title>
@@ -14,11 +16,15 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
-<body>
+<body> {% endcomment %}
 <!-- Grey with black text -->
+
+
+{% block nav %}
+
 <nav class="navbar navbar-expand-sm bg-success navbar-light justify-content-between">
-<span class="navbar-text ">
-   <h4><b> Home</b></h4>
+  <span class="navbar-text ">
+    <h4><b> Home</b></h4>
   </span>
   <ul class="navbar-nav">
     <li class="nav-item bg-light border-dark border-right gfg rounded-pill">
@@ -30,12 +36,16 @@
   </ul>
 </nav>
 
+{% if messages %}
+  {% for i in messages %}
+    {% if i.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+    <div class="alert alert-success alert-dismissible">
+      <button type="button" class="close" data-dismiss="alert">
+  {% endfor %}
+{% endif %}
 
-  <h1> <u>Calculator</u></h1>
-  <a href="{% url 'Addition' %}"> Addition </a> <br>
-  <a href="{% url 'Substraction' %}"> Substraction </a> <br>
-  <a href="{% url 'Multiplication' %}"> Multiplication </a> <br>
-  <a href="{% url 'Division' %}"> Division </a> <br>
   
-</body>
-</html>
+{% endblock nav %}
+
+  {% comment %} </body>
+  </html> {% endcomment %}

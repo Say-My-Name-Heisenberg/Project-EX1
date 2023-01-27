@@ -1,4 +1,5 @@
-<!doctype html>
+{% extends 'nav.html' %}
+{% comment %} <!doctype html>
 <html lang="en">
   <head>
     <title>Title</title>
@@ -15,7 +16,10 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
-  <body>
+  <body> {% endcomment %}
+
+    {% block nav %}
+
     <h1>Login</h1>
     <form action="">
       {% csrf_token %}
@@ -32,5 +36,8 @@
       <button>Submit</button>
     </form> {% endcomment %}
     
-  </body>
-</html>
+  {% comment %} </body>
+
+</html> {% endcomment %}
+
+{% endblock nav %}

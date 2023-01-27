@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.views.generic import View
 from .forms import RegForm,LogForm
+from django.contrib import messages
 
 # # Create your views here.
 # def log(req):
@@ -68,8 +69,12 @@ class RegView(View):
         #    res="Registration Success"
         #    return render (req,"registration.html",{"data":res})
             uname=form_data.cleaned_data.get("username")
-            return redirect ("h")
+            uname=form_data.cleaned_data.get("username")
+            uname=form_data.cleaned_data.get("username")
+            messages.success(req,"Registration Sucessfull")
+            return redirect ("Home")
         else:
+            messages.error(req,"Registration Failed!")
             return render(req,"registration.html",{"form":form_data})
 
 class LogView(View):
