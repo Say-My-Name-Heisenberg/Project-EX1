@@ -72,6 +72,7 @@ class RegView(View):
             uname=form_data.cleaned_data.get("username")
             uname=form_data.cleaned_data.get("username")
             messages.success(req,"Registration Sucessfull")
+            messages.success(req,"Error example")
             return redirect ("Home")
         else:
             messages.error(req,"Registration Failed!")
