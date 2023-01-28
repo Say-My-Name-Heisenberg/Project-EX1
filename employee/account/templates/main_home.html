@@ -41,6 +41,9 @@
     {% if i.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
     <div class="alert alert-success alert-dismissible">
       <button type="button" class="close" data-dismiss="alert">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          {{i}}
+    {% endif %}
   {% endfor %}
 {% endif %}
 
