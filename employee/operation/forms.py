@@ -1,8 +1,8 @@
 from django import forms
 
 class OpForm (forms.Form):
-    num1 = forms.IntegerField(label="Enter first Number")
-    num2 = forms.IntegerField(label="Enter Second Number")
+    num1 = forms.IntegerField(label="Enter first Number",widget=forms.NumberInput(attrs={"placeholder":"Enter first number","class":"form-control"}))
+    num2 = forms.IntegerField(label="Enter Second Number",widget=forms.NumberInput(attrs={"placeholder":"Enter second number","class":"form-control"}))
     def clean(self):
         cleaned_data=super().clean()
         num1=cleaned_data.get("num1")
