@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.views.generic import View
 from .forms import RegForm,LogForm
 from django.contrib import messages
+from .models import Staff
 
 # # Create your views here.
 # def log(req):
@@ -66,11 +67,13 @@ class RegView(View):
     def post(self,req,*args,**kwargs):
         form_data = RegForm(data=req.POST)
         if form_data.is_valid():
-        #    res="Registration Success"
-        #    return render (req,"registration.html",{"data":res})
-            uname=form_data.cleaned_data.get("username")
-            uname=form_data.cleaned_data.get("username")
-            uname=form_data.cleaned_data.get("username")
+            fn=form_data.cleaned_data.get("first_name")
+            ln=form_data.cleaned_data.get("last_name")
+            exp=form_data.cleaned_data.get("experience")
+            mail=form_data.cleaned_data.get("email")
+            un=form_data.cleaned_data.get("username")
+            psw=form_data.cleaned_data.get("password")
+            Staff.objects.create(first=fn,last=ln,exp=exp,mail=mail,username=un,password=psw)
             messages.success(req,"Registration Sucessfull")
             return redirect ("Home")
         else:
@@ -82,6 +85,10 @@ class LogView(View):
         form = LogForm()
         return render(reg,"login.html",{"form":form})
 
+class StaffView(View):
+    def get (self,req,*args,**kwargs):
+        form = StaffView()
+        return render (req,"Staff list.html")
 class MainHome(View):
     def get(self,reg,*args,**kwargs):
         return render (reg,"main_home.html")

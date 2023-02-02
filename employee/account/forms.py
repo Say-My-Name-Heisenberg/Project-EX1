@@ -28,4 +28,6 @@ class LogForm(forms.Form):
     username = forms.CharField(max_length=50,widget=forms.TextInput(attrs={"placeholder":"Enter Username","class":"form-control"}))
     password = forms.CharField(max_length=30,widget=forms.PasswordInput(attrs={"placeholder":"Enter Password","class":"form-control"}))
    
+class StaffForm(forms.Form):
+    details =forms.TimeField()
     

@@ -1,0 +1,39 @@
+from account.models import Staff
+
+Staff.objects.create(first="Ram",last="M S",mail="ramsmail@gmail.com",exp=2,username="srms",password="1234") 
+
+Staff.objects.create(first="Arju",last="C K",mail="balan@gmail.com",exp=1,username="ack",password="1234")
+
+Staff.objects.create(first="Anju",last="N K",mail="anju@gmail.com",exp=1,username="anjk",password="4444")  
+
+res=Staff.objects.all()
+print(res)
+
+for i in res:
+    print(i.first,i.last,i.mail)
+
+
+res=Staff.objects.get(id=2)
+print(res)
+
+
+s=Staff.objects.filter(exp__lt=2) 
+
+print(res.first,res.last)
+
+
+
+from django.db.models import Q
+
+res=Staff.objects.filter(~Q(exp=2))
+ for i in res:
+    print(i.first)
+
+
+3.Delete
+
+
+    s=Staff.objects.get(id=1)
+    s.delete()
+
+    modelname.objects.filter(id=2).delete
