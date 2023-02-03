@@ -100,7 +100,10 @@ class StaffDelete(View):
         return redirect("Staff")
     
 class StaffEdit(View):
-    def get(self,req,*args,**kwargs):
+    def get(self,reg,*args,**kwargs):
+        form = RegForm()
+        return render(reg,"registration.html",{"form":form})
+    def post(self,req,*args,**kwargs):
         form_data = RegForm(data=req.POST)
         id=kwargs.get("sid")
         staff=Staff.objects.get(id=id)
