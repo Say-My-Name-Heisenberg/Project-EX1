@@ -87,8 +87,11 @@ class LogView(View):
 
 class StaffView(View):
     def get (self,req,*args,**kwargs):
+        res=Staff.objects.all()
         form = StaffView()
-        return render (req,"Staff list.html")
+        return render (req,"Staff list.html",{"data":res})
+
+        
 class MainHome(View):
     def get(self,reg,*args,**kwargs):
         return render (reg,"main_home.html")
