@@ -98,6 +98,12 @@ class StaffDelete(View):
         staff.delete()
         messages.success(req,"Staff Removed")
         return redirect("Staff")
+    
+class StaffEdit(View):
+    def get(self,req,*args,**kwargs):
+        id=kwargs.get("sid")
+        staff=Staff.objects.get(id=id)
+        
 
 
 class MainHome(View):

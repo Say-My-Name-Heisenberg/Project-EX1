@@ -6,4 +6,5 @@ urlpatterns = [
     path('reg/',RegView.as_view(),name="Registration"),
     path('staff/',StaffView.as_view(),name="Staff"),
     path('Delstaff/<int:sid>',StaffDelete.as_view(),name="DelStaff"),
+    path('EditStaff/',StaffEdit.as_view(),name="EditStaff")
 ]
