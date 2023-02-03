@@ -88,10 +88,18 @@ class LogView(View):
 class StaffView(View):
     def get (self,req,*args,**kwargs):
         res=Staff.objects.all()
-        form = StaffView()
+        # form = StaffView()
         return render (req,"Staff list.html",{"data":res})
 
-        
+class StaffDelete(View):
+    def get (self,req,*args,**kwargs):
+        id=kwargs.get("sid")
+        staff=Staff.objects.get(id=id)
+        staff.delete()
+        messages.success(req,"Staff Removed")
+        return redirect("Staff")
+
+
 class MainHome(View):
     def get(self,reg,*args,**kwargs):
         return render (reg,"main_home.html")
