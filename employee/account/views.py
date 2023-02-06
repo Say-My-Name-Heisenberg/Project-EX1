@@ -101,13 +101,13 @@ class StaffDelete(View):
     
 class StaffEdit(View):
     def get(self,req,*args,**kwargs):
-        form = RegForm()
-        form_data = RegForm(data=req.POST)
-        return render(req,"Edit Staff.html",{"form":form_data})
-    def post(self,req,*args,**kwargs):
         id=kwargs.get("sid")
         staff=Staff.objects.get(id=id)
-        return render (req,"Edit Staff.html",{"form":form_data})
+        form = RegForm(initial={"first_name":Staff.first,"last_name":Staff.last})
+        return render(req,"Edit Staff.html",{"form":form})
+    # def post(self,req,*args,**kwargs):
+    #     staff=Staff.objects.get(id=id)
+    #     return render (req,"Edit Staff.html",{"form":form_data})
         
 
 
