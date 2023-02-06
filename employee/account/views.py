@@ -103,11 +103,35 @@ class StaffEdit(View):
     def get(self,req,*args,**kwargs):
         id=kwargs.get("sid")
         staff=Staff.objects.get(id=id)
-        form = RegForm(initial={"first_name":Staff.first,"last_name":Staff.last})
+        form = RegForm(initial={"first_name":staff.first,"last_name":staff.last,"experience":staff.exp,"email":staff.mail,"username":staff.username,"password":staff.password})
         return render(req,"Edit Staff.html",{"form":form})
-    # def post(self,req,*args,**kwargs):
-    #     staff=Staff.objects.get(id=id)
-    #     return render (req,"Edit Staff.html",{"form":form_data})
+    def post(self,req,*args,**kwargs):
+        form_data=RegForm(data=req.POST)
+        if form_data.is_valid():
+            fn=form_data.cleaned_data.get("first_name")
+            ln=form_data.cleaned_data.get("last_name")
+            exp=form_data.cleaned_data.get("experience")
+            mail=form_data.cleaned_data.get("email")
+            un=form_data.cleaned_data.get("username")
+            psw=form_data.cleaned_data.get("password")
+            id=kwargs.get("sid")
+            staff=Staff.objects.get(id=id)
+            staff.first=fn
+            staff.last=ln
+            staff.exp=exp
+            staff.mail=mail
+            staff.password=psw
+            staff.username=un
+            staff.save()
+            messages.success(req,"Staff Details Updated")
+            return redirect ('Staff')
+        else:
+            messages.success(req,"Staff Details Updation failed")
+            
+
+
+        staff=Staff.objects.get(id=id)
+        return render (req,"Edit Staff.html",{"form":form_data})
         
 
 
