@@ -9,20 +9,20 @@ class RegForm(forms.Form):
     username = forms.CharField(max_length=50,widget=forms.TextInput(attrs={"placeholder":"Enter Username","class":"form-control"}))
     password = forms.CharField(max_length=30,widget=forms.PasswordInput(attrs={"placeholder":"Enter Password","class":"form-control"}))
 
-    def clean(self):
-        cleaned_data =super().clean()
-        fname=cleaned_data.get("first_name")
-        lname=cleaned_data.get("last_name")
-        exp=cleaned_data.get("experience")
+    # def clean(self):
+    #     cleaned_data =super().clean()
+    #     fname=cleaned_data.get("first_name")
+    #     lname=cleaned_data.get("last_name")
+    #     exp=cleaned_data.get("experience")
 
-        if fname == lname:
-            msg = "first name and last name cant be same"
-            self.add_error("first_name",msg)
-            self.add_error("last_name",msg)
+    #     if fname == lname:
+    #         msg = "first name and last name cant be same"
+    #         self.add_error("first_name",msg)
+    #         self.add_error("last_name",msg)
 
-        if exp <= 0:
-            msg="Experience can't be null"
-            self.add_error("experience",msg)
+    #     if exp <= 0:
+    #         msg="Experience can't be null"
+    #         self.add_error("experience",msg)
 
 
 class LogForm(forms.Form):
