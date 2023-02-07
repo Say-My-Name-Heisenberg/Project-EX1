@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.views.generic import View
-from .forms import RegForm,LogForm
+from .forms import RegForm,LogForm,RegModelForm
 from django.contrib import messages
 from .models import Staff
 
@@ -60,20 +60,38 @@ from .models import Staff
 #             password=reg.POST.get("pswd")
 #             return HttpResponse ("NAME:"+first_name+" "+last_name+"<br>Email:"+mail+"<br>username:"+user+"<br>Password:"+password)
 
+# ========================================================================================
+
+# class RegView(View):
+#     def get(self,reg,*args,**kwargs):
+#         form = RegForm()
+#         return render(reg,"registration.html",{"form":form})
+#     def post(self,req,*args,**kwargs):
+#         form_data = RegForm(data=req.POST)
+#         if form_data.is_valid():
+#             fn=form_data.cleaned_data.get("first_name")
+#             ln=form_data.cleaned_data.get("last_name")
+#             exp=form_data.cleaned_data.get("experience")
+#             mail=form_data.cleaned_data.get("email")
+#             un=form_data.cleaned_data.get("username")
+#             psw=form_data.cleaned_data.get("password")
+#             Staff.objects.create(first=fn,last=ln,exp=exp,mail=mail,username=un,password=psw)
+#             messages.success(req,"Registration Sucessfull")
+#             return redirect ("Home")
+#         else:
+#             messages.error(req,"Registration Failed!")
+#             return render(req,"registration.html",{"form":form_data})
+
+# using modelform
+
 class RegView(View):
     def get(self,reg,*args,**kwargs):
-        form = RegForm()
-        return render(reg,"registration.html",{"form":form})
+        form=RegModelForm()
+        return render(reg,"registration.html",{"form":form})    
     def post(self,req,*args,**kwargs):
-        form_data = RegForm(data=req.POST)
+        form_data = RegModelForm(data=req.POST)
         if form_data.is_valid():
-            fn=form_data.cleaned_data.get("first_name")
-            ln=form_data.cleaned_data.get("last_name")
-            exp=form_data.cleaned_data.get("experience")
-            mail=form_data.cleaned_data.get("email")
-            un=form_data.cleaned_data.get("username")
-            psw=form_data.cleaned_data.get("password")
-            Staff.objects.create(first=fn,last=ln,exp=exp,mail=mail,username=un,password=psw)
+            form_data.save()
             messages.success(req,"Registration Sucessfull")
             return redirect ("Home")
         else:
