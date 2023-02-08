@@ -10,7 +10,3 @@ obj = Main("Test 1")
 print(obj)
 obj2 = Main("Test 2")
 print(obj2)
-
-
-fk
-
