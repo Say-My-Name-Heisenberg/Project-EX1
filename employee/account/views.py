@@ -89,7 +89,7 @@ class RegView(View):
         form=RegModelForm()
         return render(reg,"registration.html",{"form":form})    
     def post(self,req,*args,**kwargs):
-        form_data = RegModelForm(data=req.POST)
+        form_data = RegModelForm(data=req.POST,files=req.FILES)
         if form_data.is_valid():
             form_data.save()
             messages.success(req,"Registration Sucessfull")

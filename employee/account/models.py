@@ -9,6 +9,7 @@ class Staff(models.Model):
     exp=models.IntegerField(verbose_name="Experience")
     username=models.CharField(max_length=100,verbose_name="Username")
     password=models.CharField(max_length=100,verbose_name="Password")
+    pic=models.ImageField(upload_to="profile_pic",null=True)
     
     def __str__(self):
         return self.first

@@ -8,3 +8,7 @@ Almighty Push
 
 
 git@github.com:Say-My-Name-Heisenberg/Project-EX1.gitjksdk
+
+
+
+pip install pillow

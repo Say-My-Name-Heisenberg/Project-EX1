@@ -29,6 +29,7 @@
         <th> Experience</th>
         <th> Username</th>
         <th> Password</th>
+        <th>Image</th>
         <th></th>
         <th></th>
     </tr>
@@ -39,6 +40,12 @@
         <td>{{i.exp}}</td>
         <td>{{i.username}}</td>
         <td>{{i.password}}</td>
+        <td>
+            {% if i.pic %}
+            <img src="{{ i.pic.urls}}" alt="img">
+        {%endid%}
+    </td>
+
         <td> <a href="{% url 'DelStaff' i.id %}" class="btn btn-danger">Delete</a>
          <a href="{% url 'EditStaff' i.id %}" class="btn btn-success"> Edit </a> </td>
     </tr>
