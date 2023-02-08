@@ -43,7 +43,7 @@
         <td>
             {% if i.pic %}
             <img src="{{ i.pic.urls}}" alt="img">
-        {%endid%}
+            {% endif %}
     </td>
 
         <td> <a href="{% url 'DelStaff' i.id %}" class="btn btn-danger">Delete</a>

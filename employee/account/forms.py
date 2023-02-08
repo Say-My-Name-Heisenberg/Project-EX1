@@ -8,6 +8,7 @@ class RegForm(forms.Form):
     experience =forms.IntegerField(widget=forms.NumberInput(attrs={"placeholder":"Enter Number of years","class":"form-control"}))
     username = forms.CharField(max_length=50,widget=forms.TextInput(attrs={"placeholder":"Enter Username","class":"form-control"}))
     password = forms.CharField(max_length=30,widget=forms.PasswordInput(attrs={"placeholder":"Enter Password","class":"form-control"}))
+    
 
     # def clean(self):
     #     cleaned_data =super().clean()
