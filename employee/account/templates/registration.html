@@ -20,48 +20,58 @@
       <form action="" method="post" enctype="multipart/form-data">
 
       {% csrf_token %}
-      
-      
-      <div class="fieldWrapper">
-        {{ form.pic.error }}
-        <label for="{{ form.pic.id_for_label }}">Upload Image</label>
-        {{ form.pic }}
-      </div>
-      
-      <div class="fieldWrapper">
-        {{ form.first.error }}
-        <label for="{{ form.first.id_for_label }}">Enter First Name</label>
-        {{ form.first }}
-      </div>
-      <div class="fieldWrapper">
-        {{ form.last.error }}
-        <label for="{{ form.last.id_for_label }}">Enter Last Name</label>
-        {{ form.last }}
-      </div>
-      <div class="fieldWrapper">
-        {{ form.email.error }}
-        <label for="{{ form.email.id_for_label }}">Enter G-Mail</label>
-        {{ form.email }}
-      </div>
-      <div class="fieldWrapper">
-        {{ form.exp.error }}
-        <label for="{{ form.exp.id_for_label }}">Experience</label>
-        {{ form.exp }}
-      </div>
-      <div class="fieldWrapper">
-        {{ form.username.error }}
-        <label for="{{ form.username.id_for_label }}">Username</label>
-        {{ form.username }}
-      </div>
-      <div class="fieldWrapper">
-        {{ form.password.error }}
-        <label for="{{ form.password.id_for_label }}">Password</label>
-        {{ form.password }}
+      <div class="row">
+        <div class="col">
+          <div class="fieldWrapper">
+            {{ form.pic.error }}
+            <label for="{{ form.pic.id_for_label }}">Upload Image</label>
+            {{ form.pic }}
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="fieldWrapper">
+            {{ form.first.error }}
+            <label for="{{ form.first.id_for_label }}">Enter First Name</label>
+            {{ form.first }}
+          </div>
+        
+          <div class="fieldWrapper">
+            {{ form.last.error }}
+            <label for="{{ form.last.id_for_label }}">Enter Last Name</label>
+            {{ form.last }}
+          </div>
+          <div class="fieldWrapper">
+            {{ form.mail.error }}
+            <label for="{{ form.mail.id_for_label }}">Enter G-Mail</label>
+            {{ form.mail }}
+          </div>
+          <div class="fieldWrapper">
+            {{ form.exp.error }}
+            <label for="{{ form.exp.id_for_label }}">Experience</label>
+            {{ form.exp }}
+          </div>
+        </div>
+        
+        <div class="col">
+          <div class="fieldWrapper">
+            {{ form.username.error }}
+            <label for="{{ form.username.id_for_label }}">Username</label>
+            {{ form.username }}
+          </div>
+          <div class="fieldWrapper">
+            {{ form.password.error }}
+            <label for="{{ form.password.id_for_label }}">Password</label>
+            {{ form.password }}
+          </div>
+        </div>
       </div>
 
       <br>
-      <button class="btn btn-info">Submit</button>
-      {{data}}
+      <div class="text-center">
+        <button class="btn btn-info">Submit</button>
+      </div>
+      
 
 
 {% if messages %}
