@@ -1,7 +1,12 @@
 {% extends 'nav.html' %}
 
     {% block nav %}
+    {% load static %}
 
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  
+  
+  <div class="container jumbotron">
       <h1 class="">Registration</h1>
 
 
@@ -16,17 +21,24 @@
       {% endfor %}
     {% endif %}
 
+    
 
       <form action="" method="post" enctype="multipart/form-data">
 
       {% csrf_token %}
+
       <div class="row">
         <div class="col">
           <div class="fieldWrapper">
-            {{ form.pic.error }}
-            <label for="{{ form.pic.id_for_label }}">Upload Image</label>
-            {{ form.pic }}
-          </div>
+            <div class="card" style="width: 18rem;">
+              <img class="card-img-top" src="{% static 'images/man.png' %}" alt="Card image cap">
+              <div class="card-body">
+                {{ form.pic.error }}
+                <label for="{{ form.pic.id_for_label }}">Upload Image</label>
+                {{ form.pic }}
+              </div>
+            </div>
+            </div>
         </div>
 
         <div class="col">
@@ -71,6 +83,7 @@
       <div class="text-center">
         <button class="btn btn-info">Submit</button>
       </div>
+    </div>
       
 
 
