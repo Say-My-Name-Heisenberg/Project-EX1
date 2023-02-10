@@ -7,4 +7,5 @@ urlpatterns = [
     path('staff/',StaffView.as_view(),name="Staff"),
     path('Delstaff/<int:sid>',StaffDelete.as_view(),name="DelStaff"),
     path('EditStaff/<int:sid>',StaffEdit.as_view(),name="EditStaff"),
+    path("home/",MainHome.as_view(),name="Home")
 ]

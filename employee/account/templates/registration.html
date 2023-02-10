@@ -5,10 +5,11 @@
 
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
   
-  
+  <br>
+  <br>
   <div class="container jumbotron">
       <h1 class="">Registration</h1>
-
+    <br>
 
       {% if messages %}
       {% for i in messages %}
@@ -31,7 +32,7 @@
         <div class="col">
           <div class="fieldWrapper">
             <div class="card" style="width: 18rem;">
-              <img class="card-img-top" src="{% static 'images/man.png' %}" alt="Card image cap">
+              <img class="card-img-top" src="{% static 'images/user.png' %}" alt="Card image cap">
               <div class="card-body">
                 {{ form.pic.error }}
                 <label for="{{ form.pic.id_for_label }}">Upload Image</label>
@@ -44,18 +45,18 @@
         <div class="col">
           <div class="fieldWrapper">
             {{ form.first.error }}
-            <label for="{{ form.first.id_for_label }}">Enter First Name</label>
+            <label for="{{ form.first.id_for_label }}">First Name</label>
             {{ form.first }}
           </div>
         
           <div class="fieldWrapper">
             {{ form.last.error }}
-            <label for="{{ form.last.id_for_label }}">Enter Last Name</label>
+            <label for="{{ form.last.id_for_label }}">Last Name</label>
             {{ form.last }}
           </div>
           <div class="fieldWrapper">
             {{ form.mail.error }}
-            <label for="{{ form.mail.id_for_label }}">Enter G-Mail</label>
+            <label for="{{ form.mail.id_for_label }}">G-Mail</label>
             {{ form.mail }}
           </div>
           <div class="fieldWrapper">
@@ -84,6 +85,8 @@
         <button class="btn btn-info">Submit</button>
       </div>
     </div>
+    <br>
+    <br>
       
 
 

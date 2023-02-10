@@ -157,7 +157,7 @@ class StaffEdit(View):
     def post(self,req,*args,**kwargs):
         id=kwargs.get("sid")
         staff=Staff.objects.get(id=id)
-        form_data=RegModelForm(data=req.POST)
+        form_data=RegModelForm(data=req.POST,files=req.FILES)
         if form_data.is_valid():
             form_data.save()
             messages.success(req,"Staff Details Updated")
