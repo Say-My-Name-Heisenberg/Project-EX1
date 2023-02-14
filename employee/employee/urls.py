@@ -25,5 +25,6 @@ urlpatterns = [
     path('worker/',include('worker.urls')),
     path('account/',include('account.urls')),
     path('operation/',include('operation.urls')),
+    path('auth/',include('auth_acc.urls')),
     path('',Home_Page.as_view(),name="Homepage")
 ]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
