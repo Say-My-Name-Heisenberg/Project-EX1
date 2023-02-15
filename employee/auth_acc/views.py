@@ -28,5 +28,5 @@ class SignupView(View):
 
 class SigninView(View):
     def get(self,reg,*args,**kwargs):
-        form = ()
+        form =LoginForm()
         return render(reg,"Sign In.html",{"form":form})

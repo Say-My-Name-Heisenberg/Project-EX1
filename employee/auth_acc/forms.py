@@ -13,3 +13,6 @@ class RegistrationForm(UserCreationForm):
             'password1','password2'
             
         ]
+class LoginForm(forms.Form):
+    username=forms.CharField(max_length=100,widget=forms.TextInput())
+    password=forms.CharField(max_length=100,widget=forms.TextInput())
