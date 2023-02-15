@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.views.generic import View
 from .forms import *
 from django.contrib import messages
+from django.contrib.auth import authenticate
 
 # Create your views here.
 
@@ -30,3 +31,17 @@ class SigninView(View):
     def get(self,reg,*args,**kwargs):
         form =LoginForm()
         return render(reg,"Sign In.html",{"form":form})
+    def post (self,req,*args,**kwargs):
+        form_data=LoginForm(data=req.POST)
+        if form_data.is_valid():
+            un=form_data.cleaned_data.get("username")
+            psw=form_data.cleaned_data.get("password")
+            user=authenticate(req,username=un,password=psw)
+            if user:
+                messages.success(req,"LOgin SucCess")
+                return redirect("Home")
+            else:
+                messages.error(req,"Login Failed")
+                return redirect("Sign In")
+        else:
+            return render (req,"Sign In.html",{"form":form_data})
