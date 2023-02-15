@@ -21,7 +21,7 @@ class SignupView(View):
         if form_data.is_valid():
             form_data.save()
             messages.success(req,"User Registration Sucessfull")
-            return redirect ("Home")
+            return redirect ("Homepage")
         else:
             messages.error(req,"User Registration Failed!")
             return render(req,"Sign Up.html",{"form":form_data})
@@ -45,3 +45,8 @@ class SigninView(View):
                 return redirect("Sign In")
         else:
             return render (req,"Sign In.html",{"form":form_data})
+
+
+class LogOut(View):
+    def get(self,req):
+        return redirect("Sign in")
