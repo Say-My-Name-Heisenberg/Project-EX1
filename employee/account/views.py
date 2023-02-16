@@ -169,5 +169,6 @@ class StaffEdit(View):
             
 class MainHome(View):
     def get(self,reg,*args,**kwargs):
-        return render (reg,"main_home.html")
+        user=reg.user
+        return render (reg,"main_home.html",{"name":user})
 

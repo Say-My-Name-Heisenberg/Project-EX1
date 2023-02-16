@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.views.generic import View
 from .forms import *
 from django.contrib import messages
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate,login
 
 # Create your views here.
 
@@ -38,6 +38,8 @@ class SigninView(View):
             psw=form_data.cleaned_data.get("password")
             user=authenticate(req,username=un,password=psw)
             if user:
+                print(user.first_name,user.last_name)
+                login(req,user)
                 messages.success(req,"LOgin SucCess")
                 return redirect("Home")
             else:
@@ -49,4 +51,4 @@ class SigninView(View):
 
 class LogOut(View):
     def get(self,req):
-        return redirect("Sign in")
+        return redirect("Homepage")
