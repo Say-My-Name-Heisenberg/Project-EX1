@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.views.generic import View
 from .forms import *
 from django.contrib import messages
-from django.contrib.auth import authenticate,login
+from django.contrib.auth import authenticate,login,logout
 
 # Create your views here.
 
@@ -29,8 +29,9 @@ class SignupView(View):
 
 class SigninView(View):
     def get(self,reg,*args,**kwargs):
+        user=reg.user
         form =LoginForm()
-        return render(reg,"Sign In.html",{"form":form})
+        return render(reg,"Sign In.html",{"form":form,"data":user})
     def post (self,req,*args,**kwargs):
         form_data=LoginForm(data=req.POST)
         if form_data.is_valid():
@@ -51,4 +52,5 @@ class SigninView(View):
 
 class LogOut(View):
     def get(self,req):
-        return redirect("Homepage")
+        logout(req)
+        return redirect("Sign In")
